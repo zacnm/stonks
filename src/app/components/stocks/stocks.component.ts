@@ -34,11 +34,8 @@ export class StocksComponent implements OnInit {
       }
     }
   };
-  
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() { }
 
   test() {
     this.model.symbol = 'AAPL';
@@ -49,16 +46,16 @@ export class StocksComponent implements OnInit {
 
   submit() {
     this.stockService.getCandles(this.model).subscribe(res => {
-      let data = res.o.map((o, i) => {
-         return { y: o, x: new Date(res.t[i] * 1000) }
+      const stonks = res.o.map((o, i) => {
+         return { y: o, x: new Date(res.t[i] * 1000) };
         });
-      
+
       this.dataSets.push(
-        { data: data, fill: false, label: this.model.symbol, lineTension: 0.1 }
+        { data: stonks, fill: false, label: this.model.symbol, lineTension: 0.1 }
       );
 
       this.dataLoaded = true;
-    })
+    });
   }
 
   clear() {
