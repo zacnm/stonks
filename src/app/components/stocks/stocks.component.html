@@ -1,0 +1,21 @@
+<div class="stocks">
+  <form>
+    <mat-form-field>
+      <mat-label>Symbol:</mat-label>
+      <input matInput [(ngModel)]="model.symbol" name="symbol">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Resolution:</mat-label>
+      <mat-select [(ngModel)]="model.resolution" name="resolution">
+        <mat-option [value]="'D'">Day</mat-option>
+        <mat-option [value]="'M'">Month</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>From:</mat-label>
+      <input matInput [matDatepicker]="fromDatepicker" name="fromDate">
+      <mat-datepicker-toggle matSuffix [for]="fromDatepicker"></mat-datepicker-toggle>
+      <mat-datepicker #fromDatepicker></mat-datepicker>
+    </mat-form-field>
+  </form>
+</div>
