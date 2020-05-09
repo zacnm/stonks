@@ -9,13 +9,15 @@ import { StockService } from './services/stock.service';
 import { StocksComponent } from './components';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { 
+import {
   MatCardModule,
   MatInputModule,
   MatDatepickerModule,
-  MatSelectModule, 
+  MatSelectModule,
   MatFormFieldModule,
-  MatNativeDateModule} from '@angular/material';
+  MatNativeDateModule,
+  MatButtonModule,
+  MAT_DATE_LOCALE} from '@angular/material';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -36,9 +38,13 @@ import { FormsModule } from '@angular/forms';
     MatDatepickerModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatButtonModule
   ],
-  providers: [StockService],
+  providers: [
+    StockService,
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

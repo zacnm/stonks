@@ -1,21 +1,40 @@
 <div class="stocks">
-  <form>
+  <form >
     <mat-form-field>
-      <mat-label>Symbol:</mat-label>
+      <mat-label>Symbol</mat-label>
       <input matInput [(ngModel)]="model.symbol" name="symbol">
     </mat-form-field>
     <mat-form-field>
-      <mat-label>Resolution:</mat-label>
+      <mat-label>Resolution</mat-label>
       <mat-select [(ngModel)]="model.resolution" name="resolution">
+        <mat-option [value]="'1'">Minute</mat-option>
         <mat-option [value]="'D'">Day</mat-option>
         <mat-option [value]="'M'">Month</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field>
-      <mat-label>From:</mat-label>
-      <input matInput [matDatepicker]="fromDatepicker" name="fromDate">
+      <mat-label>From</mat-label>
+      <input matInput [matDatepicker]="fromDatepicker" name="fromDate" [(ngModel)]="model.from">
       <mat-datepicker-toggle matSuffix [for]="fromDatepicker"></mat-datepicker-toggle>
       <mat-datepicker #fromDatepicker></mat-datepicker>
     </mat-form-field>
+    <mat-form-field>
+      <mat-label>To</mat-label>
+      <input matInput [matDatepicker]="toDatepicker" name="toDate" [(ngModel)]="model.to">
+      <mat-datepicker-toggle matSuffix [for]="toDatepicker"></mat-datepicker-toggle>
+      <mat-datepicker #toDatepicker></mat-datepicker>
+    </mat-form-field>
+    <button mat-raised-button type="submit" (click)="submit()">Submit</button>
   </form>
+  <button mat-stroked-button (click)="test()">Test</button>
+  <button mat-raised-button color="primary" (click)="clear()">Clear</button>
+
+  <div *ngIf="dataLoaded">
+    <canvas baseChart
+    [datasets]="dataSets"
+    [chartType]="'line'"
+    [options]="lineOptions"></canvas>
+  </div>
+  
+
 </div>
