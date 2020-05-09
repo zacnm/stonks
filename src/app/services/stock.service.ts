@@ -22,7 +22,7 @@ export class StockService {
   }
 
   getCandles(request: CandleRequest): Observable<Candle> {
-    return this.http.get<Candle>(`${environment.finnhubURL}/stock/candle?symbol=${request.symbol}&resolution=${request.resolution}&
-    from=${request.from.getTime() / 1000}&to=${request.to.getTime() / 1000}&token=${environment.finnhubToken}`);
+    return this.http.get<Candle>(`${environment.finnhubURL}/stock/candle?symbol=${request.symbol}&resolution=${request.resolution}&` +
+    `from=${request.from.getTime() / 1000}&to=${request.to.getTime() / 1000}&token=${environment.finnhubToken}`);
   }
 }

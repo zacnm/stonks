@@ -17,7 +17,8 @@ import {
   MatFormFieldModule,
   MatNativeDateModule,
   MatButtonModule,
-  MAT_DATE_LOCALE} from '@angular/material';
+  MAT_DATE_LOCALE,
+  MatProgressSpinnerModule} from '@angular/material';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -39,7 +40,8 @@ import { FormsModule } from '@angular/forms';
     MatSelectModule,
     MatFormFieldModule,
     MatNativeDateModule,
-    MatButtonModule
+    MatButtonModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     StockService,
