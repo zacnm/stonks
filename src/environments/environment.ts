@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  finnhubURL: 'https://finnhub.io/api/v1',
-  finnhubToken: 'bqorbu7rh5rced4gdgn0'
+  apiUrl: 'http://localhost:4200/api'
 };
 
 /*

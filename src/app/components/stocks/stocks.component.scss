@@ -1,9 +1,14 @@
 .stocks {
     height: 100%;
     width: 100%;
-    margin: 2.4rem;
+    padding: 2.4rem;
 
     mat-form-field {
         margin-right: 1.6rem;
+    }
+
+    .submit-button {
+        max-height: 36px;
+        display: inline;
     }
 }

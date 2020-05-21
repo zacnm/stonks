@@ -1,8 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { StockService } from 'src/app/services/stock.service';
-import { CandleRequest, Candle } from 'src/app/models';
+import { CandleRequest } from 'src/app/models';
 import { ChartDataSets, ChartOptions } from 'chart.js';
-import { Label } from 'ng2-charts';
 import { Subscription } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 
