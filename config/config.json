@@ -1,6 +1,7 @@
 {
   "database": {
-    "host": "localhost"
+    "host": "localhost:2020",
+    "name": "stonks" 
   },
   "stocksApi": {
     "finnhubUrl": "https://finnhub.io/api/v1",

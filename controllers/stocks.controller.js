@@ -1,4 +1,5 @@
-const stocksService = require('../services/stocksService');
+const stocksService = require('../services/stocksService'),
+      exchangesRepository = require('../lib/exchanges.repository');
 
 class StocksController {
 
@@ -15,10 +16,9 @@ class StocksController {
   }
 
   getExchanges(req, res) {
-    stocksService.getExchanges().then(response => {
-      res.json(response.data);
-    }, err => {
-      console.log(err);
+    exchangesRepository.getExchanges((err, docs) => {
+      const exchanges = docs.map(x => x.toObject());
+      res.json(exchanges);
     });
   }
 

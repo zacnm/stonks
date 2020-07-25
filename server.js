@@ -4,6 +4,8 @@ const express = require('express'),
 
       app = express(),
       router = require('./routes/router'),
+      database = require('./lib/database'),
+      seeder = require('./lib/seeder'),
       port = 3000;
 
 class Server {
@@ -11,6 +13,7 @@ class Server {
   constructor() {
     this.initMiddleWare();
     this.initRoutes();
+    this.initDatabase();
     this.start();
   }
 
@@ -23,6 +26,27 @@ class Server {
   initMiddleWare() {
     app.use(bodyParser.json());
     app.use(errorHandler());
+
+    if (process.platform === "win32") {
+      require("readline").createInterface({
+          input: process.stdin,
+          output: process.stdout
+      }).on("SIGINT", () => {
+          console.log('Closing MongoDB connection');
+          // database.close();
+      });
+    }
+
+    process.on('SIGINT', () => {
+        console.log('Closing MongoDB connection');
+        // database.close();
+    });
+  }
+
+  initDatabase() {
+      database.open(() => {
+          seeder.init();
+      });
   }
 
   initRoutes() {

@@ -1,11 +1,19 @@
 {
   "version": "0.2.0",
-  "configurations": [
+  "configurations": [{
+    "type": "node",
+    "request": "launch",
+    "name": "Launch",
+    "program": "${workspaceFolder}/server.js",
+    "skipFiles": [
+      "<node_internals>/**"
+    ]
+  },
     {
       "type": "node",
       "request": "attach",
       "name": "Attach",
-      "port": 9229,
+      "port": 5858,
       "skipFiles": [
         "<node_internals>/**"
       ]
